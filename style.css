@@ -1,475 +1,550 @@
 *, :before, :after {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:before, :after {
+  content: '';
+}
+
+body {
+  background-color: #333333;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+input {
+  display: none;
+  opacity: 0;
+}
+
+.fb {
+  display: flex;
+}
+
+.fbaic {
+  align-items: center;
+}
+
+.fbjcc {
+  justify-content: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.91);
+  letter-spacing: 0.28px;
+  font-weight: 400;
+  text-shadow: 0 0 10px #cfcfcf;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.lock-title {
+  padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lock {
+  position: relative;
+}
+
+.lock-rows {
+  height: 240px;
+  width: 600px;
+  position: relative;
+}
+
+.lock-rows:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+  cursor: pointer;
+}
+
+.lock-number {
+  height: 60px;
+  box-shadow: 0 0 2px #ffffff inset;
+  transition: background-color 0.34s;
+  position: relative;
+  flex: 1;
+}
+
+.lock-number label {
+  cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+label:before {
+  content: attr(value);
+}
+
+.lock-number:hover {
+  background-color: rgb(190 190 190 / 95%);
+}
+
+.lock-number:before {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: absolute;
+  border: 2px solid white;
+  left: 15px;
+  top: 15px;
+}
+
+.lock-number:after {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  position: absolute;
+  left: 22px;
+  top: 22px;
+}
+
+.input-row1-0:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(1):after,
+.input-row1-1:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(2):after,
+.input-row1-2:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(3):after,
+.input-row1-4:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(5):after,
+.input-row1-5:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(6):after,
+.input-row1-6:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(7):after,
+.input-row1-7:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(8):after,
+.input-row1-8:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(9):after,
+.input-row1-9:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(10):after,
+.input-row2-0:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(1):after,
+.input-row2-1:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(2):after,
+.input-row2-2:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(3):after,
+.input-row2-3:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(4):after,
+.input-row2-4:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(5):after,
+.input-row2-5:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(6):after,
+.input-row2-6:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(7):after,
+.input-row2-7:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(8):after,
+.input-row2-8:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(9):after,
+.input-row3-0:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(1):after,
+.input-row3-1:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(2):after,
+.input-row3-2:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(3):after,
+.input-row3-3:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(4):after,
+.input-row3-4:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(5):after,
+.input-row3-6:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(7):after,
+.input-row3-7:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(8):after,
+.input-row3-8:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(9):after,
+.input-row3-9:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(10):after,
+.input-row4-0:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(1):after,
+.input-row4-2:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(3):after,
+.input-row4-3:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(4):after,
+.input-row4-4:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(5):after,
+.input-row4-5:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(6):after,
+.input-row4-6:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(7):after,
+.input-row4-7:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(8):after,
+.input-row4-8:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(9):after,
+.input-row4-9:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(10):after {
+  background-color: #ffffff;
+  animation: centerCircSelect 0.22s forwards;
+}
+
+.input-row1-0:checked ~ .lock-wrapper .lock-result-1 span:nth-child(1),
+.input-row1-1:checked ~ .lock-wrapper .lock-result-1 span:nth-child(2),
+.input-row1-2:checked ~ .lock-wrapper .lock-result-1 span:nth-child(3),
+.input-row1-3:checked ~ .lock-wrapper .lock-result-1 span:nth-child(4),
+.input-row1-4:checked ~ .lock-wrapper .lock-result-1 span:nth-child(5),
+.input-row1-5:checked ~ .lock-wrapper .lock-result-1 span:nth-child(6),
+.input-row1-6:checked ~ .lock-wrapper .lock-result-1 span:nth-child(7),
+.input-row1-7:checked ~ .lock-wrapper .lock-result-1 span:nth-child(8),
+.input-row1-8:checked ~ .lock-wrapper .lock-result-1 span:nth-child(9),
+.input-row1-9:checked ~ .lock-wrapper .lock-result-1 span:nth-child(10),
+.input-row2-0:checked ~ .lock-wrapper .lock-result-2 span:nth-child(1),
+.input-row2-1:checked ~ .lock-wrapper .lock-result-2 span:nth-child(2),
+.input-row2-2:checked ~ .lock-wrapper .lock-result-2 span:nth-child(3),
+.input-row2-3:checked ~ .lock-wrapper .lock-result-2 span:nth-child(4),
+.input-row2-4:checked ~ .lock-wrapper .lock-result-2 span:nth-child(5),
+.input-row2-5:checked ~ .lock-wrapper .lock-result-2 span:nth-child(6),
+.input-row2-6:checked ~ .lock-wrapper .lock-result-2 span:nth-child(7),
+.input-row2-7:checked ~ .lock-wrapper .lock-result-2 span:nth-child(8),
+.input-row2-8:checked ~ .lock-wrapper .lock-result-2 span:nth-child(9),
+.input-row2-9:checked ~ .lock-wrapper .lock-result-2 span:nth-child(10),
+.input-row3-0:checked ~ .lock-wrapper .lock-result-3 span:nth-child(1),
+.input-row3-1:checked ~ .lock-wrapper .lock-result-3 span:nth-child(2),
+.input-row3-2:checked ~ .lock-wrapper .lock-result-3 span:nth-child(3),
+.input-row3-3:checked ~ .lock-wrapper .lock-result-3 span:nth-child(4),
+.input-row3-4:checked ~ .lock-wrapper .lock-result-3 span:nth-child(5),
+.input-row3-5:checked ~ .lock-wrapper .lock-result-3 span:nth-child(6),
+.input-row3-6:checked ~ .lock-wrapper .lock-result-3 span:nth-child(7),
+.input-row3-7:checked ~ .lock-wrapper .lock-result-3 span:nth-child(8),
+.input-row3-8:checked ~ .lock-wrapper .lock-result-3 span:nth-child(9),
+.input-row3-9:checked ~ .lock-wrapper .lock-result-3 span:nth-child(10),
+.input-row4-0:checked ~ .lock-wrapper .lock-result-4 span:nth-child(1),
+.input-row4-1:checked ~ .lock-wrapper .lock-result-4 span:nth-child(2),
+.input-row4-2:checked ~ .lock-wrapper .lock-result-4 span:nth-child(3),
+.input-row4-3:checked ~ .lock-wrapper .lock-result-4 span:nth-child(4),
+.input-row4-4:checked ~ .lock-wrapper .lock-result-4 span:nth-child(5),
+.input-row4-5:checked ~ .lock-wrapper .lock-result-4 span:nth-child(6),
+.input-row4-6:checked ~ .lock-wrapper .lock-result-4 span:nth-child(7),
+.input-row4-7:checked ~ .lock-wrapper .lock-result-4 span:nth-child(8),
+.input-row4-8:checked ~ .lock-wrapper .lock-result-4 span:nth-child(9),
+.input-row4-9:checked ~ .lock-wrapper .lock-result-4 span:nth-child(10) {
+  transform: translate(0);
+  transition: transform .38s;
+  opacity: 1;
+}
+
+.lock-result {
+  color: #ffffff;
+  background: #1e1e1e;
+  height: 100%;
+  flex-direction: column;
+}
+
+.lock-result div {
+  height: 60px;
+  width: 60px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.72s;
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 12%) inset;
+}
+
+.lock-result span {
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  font-size: 35px;
+  opacity: 0;
+  text-shadow: 3px 3px 1px black;
+  transform: translate(0, -100%);
+  transition: 0.16s transform cubic-bezier(0, 0.24, 0.41, -2.04), opacity 0s 0.05s;
+}
+
+.input-row1-3:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(4),
+.input-row2-9:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(10),
+.input-row3-5:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(6),
+.input-row4-1:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(2) {
+  background-color: rgb(250 250 250 / 35%);
+}
+
+.input-row1-3:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(4):after,
+.input-row2-9:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(10):after,
+.input-row3-5:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(6):after,
+.input-row4-1:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(2):after {
+  background-color: white;
+  transition: background-color 0.21s;
+  animation: centerCircSelect 0.22s forwards;
+}
+
+@keyframes centerCircSelect {
+  23% {
+    transform: scale(1.45);
   }
-  
-  :before, :after {
-    content: '';
-  }
-  
-  body {
-    background-color: #333333;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  input {
-    display: none;
-    opacity: 0;
-  }
-  
-  .fb {
-    display: flex;
-  }
-  
-  .fbaic {
-    align-items: center;
-  }
-  
-  .fbjcc {
-    justify-content: center;
-  }
-  
-  h2 {
-    font-size: 28px;
-    color: rgba(255, 255, 255, 0.91);
-    letter-spacing: 0.28px;
-    font-weight: 400;
-    text-shadow: 0 0 10px #cfcfcf;
-    margin: 0;
-  }
-  
-  .container {
-    height: 100%;
-    width: 100%;
-  }
-  
-  .lock-title {
-    padding-bottom: 25px;
-  }
-  
-  .lock {
-    position: relative;
-  }
-  
-  .lock-rows {
-    height: 240px;
-    width: 600px;
-    position: relative;
-  }
-  
-  .lock-rows:before {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    display: none;
-    cursor: pointer;
-  }
-  
-  .lock-number {
-    height: 60px;
-    box-shadow: 0 0 2px #ffffff inset;
-    transition: background-color 0.34s;
-    position: relative;
-    flex: 1;
-  }
-  
-  .lock-number label {
-    cursor: pointer;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-  
-  label:before {
-    content: attr(value);
-  }
-  
-  .lock-number:hover {
-    background-color: rgb(190 190 190 / 95%);
-  }
-  
-  .lock-number:before {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    position: absolute;
-    border: 2px solid white;
-    left: 15px;
-    top: 15px;
-  }
-  
-  .lock-number:after {
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    position: absolute;
-    left: 22px;
-    top: 22px;
-  }
-  
-  .input-row1-0:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(1):after,
-  .input-row1-1:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(2):after,
-  .input-row1-2:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(3):after,
-  .input-row1-4:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(5):after,
-  .input-row1-5:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(6):after,
-  .input-row1-6:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(7):after,
-  .input-row1-7:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(8):after,
-  .input-row1-8:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(9):after,
-  .input-row1-9:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(10):after,
-  .input-row2-0:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(1):after,
-  .input-row2-1:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(2):after,
-  .input-row2-2:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(3):after,
-  .input-row2-3:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(4):after,
-  .input-row2-4:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(5):after,
-  .input-row2-5:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(6):after,
-  .input-row2-6:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(7):after,
-  .input-row2-7:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(8):after,
-  .input-row2-8:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(9):after,
-  .input-row3-0:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(1):after,
-  .input-row3-1:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(2):after,
-  .input-row3-2:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(3):after,
-  .input-row3-3:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(4):after,
-  .input-row3-4:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(5):after,
-  .input-row3-6:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(7):after,
-  .input-row3-7:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(8):after,
-  .input-row3-8:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(9):after,
-  .input-row3-9:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(10):after,
-  .input-row4-0:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(1):after,
-  .input-row4-2:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(3):after,
-  .input-row4-3:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(4):after,
-  .input-row4-4:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(5):after,
-  .input-row4-5:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(6):after,
-  .input-row4-6:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(7):after,
-  .input-row4-7:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(8):after,
-  .input-row4-8:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(9):after,
-  .input-row4-9:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(10):after {
-    background-color: #ffffff;
-    animation: centerCircSelect 0.22s forwards;
-  }
-  
-  .input-row1-0:checked ~ .lock-wrapper .lock-result-1 span:nth-child(1),
-  .input-row1-1:checked ~ .lock-wrapper .lock-result-1 span:nth-child(2),
-  .input-row1-2:checked ~ .lock-wrapper .lock-result-1 span:nth-child(3),
-  .input-row1-3:checked ~ .lock-wrapper .lock-result-1 span:nth-child(4),
-  .input-row1-4:checked ~ .lock-wrapper .lock-result-1 span:nth-child(5),
-  .input-row1-5:checked ~ .lock-wrapper .lock-result-1 span:nth-child(6),
-  .input-row1-6:checked ~ .lock-wrapper .lock-result-1 span:nth-child(7),
-  .input-row1-7:checked ~ .lock-wrapper .lock-result-1 span:nth-child(8),
-  .input-row1-8:checked ~ .lock-wrapper .lock-result-1 span:nth-child(9),
-  .input-row1-9:checked ~ .lock-wrapper .lock-result-1 span:nth-child(10),
-  .input-row2-0:checked ~ .lock-wrapper .lock-result-2 span:nth-child(1),
-  .input-row2-1:checked ~ .lock-wrapper .lock-result-2 span:nth-child(2),
-  .input-row2-2:checked ~ .lock-wrapper .lock-result-2 span:nth-child(3),
-  .input-row2-3:checked ~ .lock-wrapper .lock-result-2 span:nth-child(4),
-  .input-row2-4:checked ~ .lock-wrapper .lock-result-2 span:nth-child(5),
-  .input-row2-5:checked ~ .lock-wrapper .lock-result-2 span:nth-child(6),
-  .input-row2-6:checked ~ .lock-wrapper .lock-result-2 span:nth-child(7),
-  .input-row2-7:checked ~ .lock-wrapper .lock-result-2 span:nth-child(8),
-  .input-row2-8:checked ~ .lock-wrapper .lock-result-2 span:nth-child(9),
-  .input-row2-9:checked ~ .lock-wrapper .lock-result-2 span:nth-child(10),
-  .input-row3-0:checked ~ .lock-wrapper .lock-result-3 span:nth-child(1),
-  .input-row3-1:checked ~ .lock-wrapper .lock-result-3 span:nth-child(2),
-  .input-row3-2:checked ~ .lock-wrapper .lock-result-3 span:nth-child(3),
-  .input-row3-3:checked ~ .lock-wrapper .lock-result-3 span:nth-child(4),
-  .input-row3-4:checked ~ .lock-wrapper .lock-result-3 span:nth-child(5),
-  .input-row3-5:checked ~ .lock-wrapper .lock-result-3 span:nth-child(6),
-  .input-row3-6:checked ~ .lock-wrapper .lock-result-3 span:nth-child(7),
-  .input-row3-7:checked ~ .lock-wrapper .lock-result-3 span:nth-child(8),
-  .input-row3-8:checked ~ .lock-wrapper .lock-result-3 span:nth-child(9),
-  .input-row3-9:checked ~ .lock-wrapper .lock-result-3 span:nth-child(10),
-  .input-row4-0:checked ~ .lock-wrapper .lock-result-4 span:nth-child(1),
-  .input-row4-1:checked ~ .lock-wrapper .lock-result-4 span:nth-child(2),
-  .input-row4-2:checked ~ .lock-wrapper .lock-result-4 span:nth-child(3),
-  .input-row4-3:checked ~ .lock-wrapper .lock-result-4 span:nth-child(4),
-  .input-row4-4:checked ~ .lock-wrapper .lock-result-4 span:nth-child(5),
-  .input-row4-5:checked ~ .lock-wrapper .lock-result-4 span:nth-child(6),
-  .input-row4-6:checked ~ .lock-wrapper .lock-result-4 span:nth-child(7),
-  .input-row4-7:checked ~ .lock-wrapper .lock-result-4 span:nth-child(8),
-  .input-row4-8:checked ~ .lock-wrapper .lock-result-4 span:nth-child(9),
-  .input-row4-9:checked ~ .lock-wrapper .lock-result-4 span:nth-child(10) {
-    transform: translate(0);
-    transition: transform .38s;
+}
+
+.input-row1-3:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(4):before,
+.input-row2-9:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(10):before,
+.input-row3-5:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(6):before,
+.input-row4-1:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(2):before {
+  border-color: #white;
+/*   box-shadow: 0 0 12px 2px #df3131, 0 0 2px 0 #df3131 inset; */
+}
+
+/* .input-row1-3:checked ~ .lock-wrapper .lock-result-1,
+.input-row2-9:checked ~ .lock-wrapper .lock-result-2,
+.input-row3-5:checked ~ .lock-wrapper .lock-result-3,
+.input-row4-1:checked ~ .lock-wrapper .lock-result-4 {
+  background-color: rgb(223 49 49 / 18%);
+} */
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-inner {
+  box-shadow: 0 0 20px 2px rgb(223 49 49 / 25%), 0 0 12px 2px rgb(223 49 49 / 60%) inset, 0 0 40px -15px rgb(223 48 48 / 45%);
+  transition: 1.52s;
+}
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-rows:before{
+  display: block;
+}
+
+.lock-bike {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  background-color: #2a2a2a;
+  overflow: hidden;
+}
+
+.lock-bike:before, .lock-bike:after {
+  position: absolute;
+  height: 100%;
+  width: 140px;
+}
+
+.lock-bike:before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.lock-bike:after {
+  right: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+.lock-bike-part {
+  position: absolute;
+  height: 44px;
+  background-color: #814626;
+  width: calc(50% - 60px);
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 0 -10px 7px 0 #5c321a inset, 0 5px 5px 0 #93512d inset;
+}
+
+.lock-bike-leftPart {
+  left: 0;
+  z-index: 2;
+}
+
+.lock-bike-rightPart {
+  right: 0;
+  z-index: 1;
+}
+
+.lock-block-left {
+  height: 68px;
+  width: 102px;
+  right: -60px;
+  top: -12px;
+  position: absolute;
+  background: black;
+  border-radius: 45px 4px 4px 35px;
+  overflow: hidden;
+  box-shadow: 10px 10px 10px 10px inset #1c1c1c, 10px -2px 16px -1px inset #333333;
+}
+
+.lock-block-left:before {
+  height: 100%;
+  left: -3px;
+  top: 0;
+  background-color: #101010;
+  width: 20px;
+  position: absolute;
+}
+
+.lock-block-left:after {
+  height: 100%;
+  top: 0;
+  left: 23px;
+  background-color: #101010;
+  width: 8px;
+  position: absolute;
+}
+
+.lock-block-right {
+  height: 68px;
+  width: 102px;
+  left: -60px;
+  top: -12px;
+  position: absolute;
+  background: black;
+  border-radius: 10px 35px 45px 10px;
+  overflow: hidden;
+  box-shadow: -10px 10px 10px 10px inset #1c1c1c, -10px -2px 16px -1px inset #333333;
+}
+
+.lock-block-right:before {
+  height: 100%;
+  right: -3px;
+  top: 0;
+  background-color: #101010;
+  width: 20px;
+  position: absolute;
+}
+
+.lock-block-right:after {
+  height: 100%;
+  top: 0;
+  right: 23px;
+  background-color: #101010;
+  width: 8px;
+  position: absolute;
+}
+
+.lock-block-right-pin {
+  height: 21px;
+  width: 100px;
+  background-color: #000000;
+  position: absolute;
+  left: -160px;
+  top: 12px;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 4px 6px -2px #282828 inset;
+}
+
+.lock-block-right-pin div {
+  position: absolute;
+  width: 16px;
+  height: 6px;
+  background: #000000;
+  top: -6px;
+  box-shadow: 0 2px 3px -1px #1a1a1a inset;
+}
+
+.lock-block-right-pin div:nth-child(1) {
+  left: 10px;
+}
+
+.lock-block-right-pin div:nth-child(2) {
+  left: 32px;
+}
+
+.lock-block-right-pin div:nth-child(3) {
+  left: 54px;
+}
+
+.lock-block-right-pin div:nth-child(4) {
+  left: 76px;
+}
+.info {
+  width: 100%;
+  max-width: 490px;
+  text-align: center;
+  color: #aea778;
+  font-size: 14px;
+  margin-bottom: 10px;
+  background-color: rgb(0 0 0 / 16%);
+  padding: 10px;
+  line-height: 1.22;
+}
+.info{
+  opacity: 0;
+  color:white
+    transition: opacity 1s;
+ 
+}
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~  .lock-wrapper .info{
+ opacity: 1;
+  color: white;
+  text-shadow: 0 0 1rem white;
+}
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-bike-leftPart {
+  transition: transform 0.5s 1.01s cubic-bezier(0, 0.41, 0, 1.63);
+  transform: translate(-52px, 0);
+}
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-bike-rightPart {
+  transition: transform 0.47s 1.01s cubic-bezier(0, 0.41, 0, 1.63);
+  transform: translate(68px, 0);
+}
+
+.open-lock-effect-center {
+  width: 1px;
+  height: 64px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0px;
+  bottom: 1px;
+  margin: auto;
+  z-index: 3;
+  box-shadow: 0 0 12px 4px #ffffff, 0 0 7px 1px #36bfac;
+  background: #ffffff;
+  opacity: 0;
+}
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .open-lock-effect-center {
+  animation: lockEffectCenter 1.24s 0.4s forwards;
+}
+
+@keyframes lockEffectCenter {
+  42% {
     opacity: 1;
-  }
-  
-  .lock-result {
-    color: #ffffff;
-    background: #1e1e1e;
-    height: 100%;
-    flex-direction: column;
-  }
-  
-  .lock-result div {
-    height: 60px;
-    width: 60px;
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.72s;
-    box-shadow: 0 0 10px 2px rgb(0 0 0 / 12%) inset;
-  }
-  
-  .lock-result span {
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    font-size: 35px;
-    opacity: 0;
-    text-shadow: 3px 3px 1px black;
-    transform: translate(0, -100%);
-    transition: 0.16s transform cubic-bezier(0, 0.24, 0.41, -2.04), opacity 0s 0.05s;
-  }
-  
-  .input-row1-3:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(4),
-  .input-row2-9:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(10),
-  .input-row3-5:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(6),
-  .input-row4-1:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(2) {
-    background-color: rgb(190 190 190 / 35%);
-  }
-  
-  .input-row1-3:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(4):after,
-  .input-row2-9:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(10):after,
-  .input-row3-5:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(6):after,
-  .input-row4-1:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(2):after {
-    background-color: #df3131;
-    transition: background-color 0.21s;
-    animation: centerCircSelect 0.22s forwards;
-  }
-  
-  @keyframes centerCircSelect {
-    23% {
-      transform: scale(1.45);
-    }
-  }
-  
-  .input-row1-3:checked ~ .lock-wrapper .lock-row:nth-child(1) .lock-number:nth-child(4):before,
-  .input-row2-9:checked ~ .lock-wrapper .lock-row:nth-child(2) .lock-number:nth-child(10):before,
-  .input-row3-5:checked ~ .lock-wrapper .lock-row:nth-child(3) .lock-number:nth-child(6):before,
-  .input-row4-1:checked ~ .lock-wrapper .lock-row:nth-child(4) .lock-number:nth-child(2):before {
-    border-color: #df3131;
-    box-shadow: 0 0 12px 2px #df3131, 0 0 2px 0 #df3131 inset;
-  }
-  
-  .input-row1-3:checked ~ .lock-wrapper .lock-result-1,
-  .input-row2-9:checked ~ .lock-wrapper .lock-result-2,
-  .input-row3-5:checked ~ .lock-wrapper .lock-result-3,
-  .input-row4-1:checked ~ .lock-wrapper .lock-result-4 {
-    background-color: rgb(223 49 49 / 18%);
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-inner {
-    box-shadow: 0 0 20px 2px rgb(223 49 49 / 25%), 0 0 12px 2px rgb(223 49 49 / 60%) inset, 0 0 40px -15px rgb(223 48 48 / 45%);
-    transition: 1.52s;
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-rows:before{
-    display: block;
-  }
-  
-  .lock-bike {
-    width: 100%;
-    height: 120px;
-    position: relative;
-    background-color: #2a2a2a;
-    overflow: hidden;
-  }
-  
-  .lock-bike:before, .lock-bike:after {
-    position: absolute;
-    height: 100%;
-    width: 140px;
-  }
-  
-  .lock-bike:before {
-    left: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  }
-  
-  .lock-bike:after {
-    right: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-  }
-  
-  .lock-bike-part {
-    position: absolute;
-    height: 44px;
-    background-color: #814626;
-    width: calc(50% - 60px);
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    box-shadow: 0 -10px 7px 0 #5c321a inset, 0 5px 5px 0 #93512d inset;
-  }
-  
-  .lock-bike-leftPart {
-    left: 0;
-    z-index: 2;
-  }
-  
-  .lock-bike-rightPart {
-    right: 0;
-    z-index: 1;
-  }
-  
-  .lock-block-left {
-    height: 68px;
-    width: 102px;
-    right: -60px;
-    top: -12px;
-    position: absolute;
-    background: black;
-    border-radius: 45px 4px 4px 35px;
-    overflow: hidden;
-    box-shadow: 10px 10px 10px 10px inset #1c1c1c, 10px -2px 16px -1px inset #333333;
-  }
-  
-  .lock-block-left:before {
-    height: 100%;
-    left: -3px;
-    top: 0;
-    background-color: #101010;
-    width: 20px;
-    position: absolute;
-  }
-  
-  .lock-block-left:after {
-    height: 100%;
-    top: 0;
-    left: 23px;
-    background-color: #101010;
-    width: 8px;
-    position: absolute;
-  }
-  
-  .lock-block-right {
-    height: 68px;
-    width: 102px;
-    left: -60px;
-    top: -12px;
-    position: absolute;
-    background: black;
-    border-radius: 10px 35px 45px 10px;
-    overflow: hidden;
-    box-shadow: -10px 10px 10px 10px inset #1c1c1c, -10px -2px 16px -1px inset #333333;
-  }
-  
-  .lock-block-right:before {
-    height: 100%;
-    right: -3px;
-    top: 0;
-    background-color: #101010;
-    width: 20px;
-    position: absolute;
-  }
-  
-  .lock-block-right:after {
-    height: 100%;
-    top: 0;
-    right: 23px;
-    background-color: #101010;
-    width: 8px;
-    position: absolute;
-  }
-  
-  .lock-block-right-pin {
-    height: 21px;
-    width: 100px;
-    background-color: #000000;
-    position: absolute;
-    left: -160px;
-    top: 12px;
-    border-radius: 5px 0 0 5px;
-    box-shadow: 0 4px 6px -2px #282828 inset;
-  }
-  
-  .lock-block-right-pin div {
-    position: absolute;
-    width: 16px;
-    height: 6px;
-    background: #000000;
-    top: -6px;
-    box-shadow: 0 2px 3px -1px #1a1a1a inset;
-  }
-  
-  .lock-block-right-pin div:nth-child(1) {
-    left: 10px;
-  }
-  
-  .lock-block-right-pin div:nth-child(2) {
-    left: 32px;
-  }
-  
-  .lock-block-right-pin div:nth-child(3) {
-    left: 54px;
-  }
-  
-  .lock-block-right-pin div:nth-child(4) {
-    left: 76px;
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-bike-leftPart {
-    transition: transform 0.5s 1.01s cubic-bezier(0, 0.41, 0, 1.63);
-    transform: translate(-52px, 0);
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-bike-rightPart {
-    transition: transform 0.47s 1.01s cubic-bezier(0, 0.41, 0, 1.63);
-    transform: translate(68px, 0);
-  }
-  
-  .open-lock-effect-center {
-    width: 1px;
-    height: 64px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0px;
-    bottom: 1px;
-    margin: auto;
-    z-index: 3;
-    box-shadow: 0 0 12px 4px #ffffff, 0 0 7px 1px #36bfac;
-    background: #ffffff;
+  } 100% {
     opacity: 0;
   }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .open-lock-effect-center {
-    animation: lockEffectCenter 1.24s 0.4s forwards;
+}
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-1 {
+  animation: lockSolvedNumber 0.42s forwards;
+}
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-2 {
+  animation: lockSolvedNumber  0.42s 0.12s forwards;
+}
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-3 {
+  animation: lockSolvedNumber  0.42s 0.24s forwards;
+}
+
+.input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-4 {
+  animation: lockSolvedNumber  0.42s 0.36s forwards;
+}
+
+@keyframes lockSolvedNumber {
+  68% {
+    background-color: rgb(255 255 255 / 22%);
   }
-  
-  @keyframes lockEffectCenter {
-    42% {
-      opacity: 1;
-    } 100% {
-      opacity: 0;
-    }
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-1 {
-    animation: lockSolvedNumber 0.42s forwards;
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-2 {
-    animation: lockSolvedNumber  0.42s 0.12s forwards;
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-3 {
-    animation: lockSolvedNumber  0.42s 0.24s forwards;
-  }
-  
-  .input-row1-3:checked ~ .input-row2-9:checked ~ .input-row3-5:checked ~ .input-row4-1:checked ~ .lock-wrapper .lock-result-4 {
-    animation: lockSolvedNumber  0.42s 0.36s forwards;
-  }
-  
-  @keyframes lockSolvedNumber {
-    68% {
-      background-color: rgb(255 255 255 / 22%);
-    }
-  }
+}
+
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+.meta-link {
+  align-items: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  bottom: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;  
+  display: inline-flex;
+  gap: 5px;
+  left: 10px;
+  padding: 10px 20px;
+  position: fixed;
+  text-decoration: none;
+  transition: background-color 400ms, border-color 400ms;
+  z-index: 10000;
+}
+
+.meta-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.meta-link > i, .meta-link > span {
+  height: 20px;
+  line-height: 20px;
+}
+
+.meta-link > span {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+}
